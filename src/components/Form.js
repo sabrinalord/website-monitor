@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import api from '../services/api';
 
 const Form = () => {
   const [websiteUrl, setWebsiteUrl] = useState('');
@@ -10,7 +11,7 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/checkWebsite', {
+      const response = await api.post('/api/checkWebsite', {
         websiteUrl,
         textToLookFor,
         phoneNumber
